@@ -3,7 +3,7 @@ import React from 'react';
 function FoodInfo({FoodInfo}) {
     return (
         <section>
-            <h2> {}</h2>
+            <h2> {FoodInfo}</h2>
         </section>
     );
 }
