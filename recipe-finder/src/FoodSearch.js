@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react';
 import FoodList from './FoodList';
 import FoodInfo from './FoodInfo';
 import Card from 'react-bootstrap/Card';
+import { Button } from 'react-bootstrap';
+import CustomToggle from './CustomToggle'
+
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 
 function FoodSearch(props) {
 	const [searchString, setSearchString] = useState('');
     const [result, setResult] = useState([]);
-
+    
 	function handleChange(event) {
 		setSearchString(event.target.value);
 	}
@@ -51,16 +55,25 @@ function FoodSearch(props) {
 									//    <p>{result.recipe.url}</p>
 									//    <img src="result.recipe." />
 									// 		</div>
-									<Card style={{ width: '18rem' }}>
-										<Card.Img variant='top' src='holder.js/100px180' />
-										<Card.Body>
-											<Card.Title>{result.recipe.label}</Card.Title>
-											<Card.Text>
-												Calories: {Math.floor(result.recipe.calories)}
-											</Card.Text>
-											{/* <Button variant='primary'>Go somewhere</Button> */}
-										</Card.Body>
-									</Card>
+									<div className='cards'>
+										<Card className='Card' style={{ width: '25rem' }}>
+											<Card.Img variant='top' src={result.recipe.image} />
+											<Card.Body>
+												<Card.Title>{result.recipe.label}</Card.Title>
+												<Card.Text>
+													Calories: {Math.floor(result.recipe.calories)}
+												</Card.Text>
+												{/* <link to='./FoodInfo.js'> */}
+
+												{/* <a href='{result.recipe.totalDaily}'> */}
+												<Button>Food Information</Button>
+                                                
+												{/* </a> */}
+
+												{/* </link> */}
+											</Card.Body>
+										</Card>
+									</div>
 								);
             })}
          

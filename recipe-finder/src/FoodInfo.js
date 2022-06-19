@@ -1,9 +1,10 @@
 import React from 'react';
+import FoodSearch from './FoodSearch';
 
-function FoodInfo({FoodInfo}) {
+function FoodInfo({FoodSearch}) {
     return (
         <section>
-            <h2> {FoodInfo}</h2>
+           <FoodSearch/>
         </section>
     );
 }

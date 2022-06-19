@@ -1,5 +1,4 @@
 import React from 'react';
-import {useEffect, useState} from 'react'
 import FoodList from './FoodList';
 import FoodSearch from './FoodSearch';
 
@@ -10,6 +9,7 @@ function Main(props) {
 			<div>
 				<h1>food search</h1>
 			<FoodSearch/>
+
 			</div>
 		
 	);
