@@ -1,0 +1,39 @@
+body{
+  /* display: flex;
+  align-items: center;
+  align-content: center; */
+  margin: 0;
+  padding: 0;
+  border: 5px solid;
+  
+}
+.card{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+border: 5px solid red;
+margin-left: 50px;
+width: 100%;
+}
+.col{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  border: 5px solid salmon ;
+
+}
+.wrapper, .g-4 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: blueviolet;
+}
+
+.g-4{
+  border: 5px solid gray;
+}
+.mainCard{
+  display: fle;
+}
