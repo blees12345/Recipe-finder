@@ -11,13 +11,12 @@ import './App.css'
 function Main(props) {
 	
 	return (
-		<div >
+		<>
+			<div>
 				<h1>Find the perfect dish!</h1>
-					<Search />
-		</div>
-					
-					
-		
+			</div>
+			<Search />
+		</>
 	);
 }
 

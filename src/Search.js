@@ -7,21 +7,24 @@ import Col from 'react-bootstrap/Col';
 import CustomToggle from './CustomToggle';
 import { Routes, Route } from 'react-router-dom';
 import FoodInformation from './FoodInformation';
-import  './App.css'
 
+	
 
 function Search(props) {
 	const [searchString, setSearchString] = useState('');
 	const [result, setResult] = useState([]);
 	const [active, setActive] = useState('')
+
+	const API_ID = process.env.REACT_APP_API_ID;
+	const API_KEY = process.env.REACT_APP_API_KEY;
+
 	function handleChange(event) {
 		setSearchString(event.target.value);
 	} 
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const API_ID = process.env.REACT_APP_API_ID;
-		const API_KEY = process.env.REACT_APP_API_KEY;
+	
 		const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchString}&app_id=${API_ID}&app_key=${API_KEY}&imageSize=REGULAR`;
 
 		fetch(url)
@@ -37,46 +40,62 @@ function Search(props) {
 			});
 		console.log(url);
 	}
+// function fetchFoodInfo(event){
+// event.preventDefault();
+
+// console.log('clicked')
+// }
 
 	// useEffect(()=>{
 	//     handleSubmit();
 	// },[])
 	return (
-		<div>
+		<>
 			<FoodList
 				searchString={searchString}
 				handleSubmit={handleSubmit}
 				handleChange={handleChange}
 			/>
-			{result.map((result, index) => {
-				return (
-					<div >
-						<Row xs={1} md={1} lg={1} className='g-4'>
-							{/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-							{/* <Col className='col'> */}
-								<Card className='card' key={index}>
-									<Card.Img src={result.recipe.image} />
-									<Card.Body>
-										<Card.Title>{result.recipe.label}</Card.Title>
-										<Card.Text>
-											Calories: {Math.floor(result.recipe.calories)}
-										</Card.Text>
-										<Button >
-											Food Information
-										</Button>
-									</Card.Body>
-								</Card>
-							{/* </Col> */}
-							{/* ))} */}
-						</Row>
-						{/* {active === 'buttonData' && (
-							<Card data={result.recipe.label} cardIndex='0' />
-						)} */}
+			
+					<div className='results'>
+						{result.map((result, index) => {
+							return (
+					
+						<Card className='card'>
+							<Card.Img src={result.recipe.image} />
+							<Card.Body>
+								<Card.Title>{result.recipe.label}</Card.Title>
+								<Card.Text>
+									Calories: {Math.floor(result.recipe.calories)}
+								</Card.Text>
+								<Button onClick={<FoodInformation/>}>Food Information</Button>
+							</Card.Body>
+						</Card>
+					
+							)})}
 					</div>
-				);
-			})}
-		</div>
+		
+		</>
 	);
 }
-console.log(Button)
+
 export default Search;
+
+	{/* <div className=" col=11 col-md-6 col-lg-3 mx-0 mb-4" key={index}> */}
+						{/* {Array.from({ length: 4 }).map((_, idx) => ( */}
+						{/* <Col className='col'> */}
+
+							{
+								/* </Col> */
+							}
+							{
+								/* ))} */
+							}
+							{
+								/* </div> */
+							}
+							{
+								/* {active === 'buttonData' && (
+							<Card data={result.recipe.label} cardIndex='0' />
+						)} */
+							}

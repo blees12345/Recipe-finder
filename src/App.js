@@ -12,10 +12,10 @@ import Search from './Search';
 function App() {
  
   return (
-		<div className='cards'>
-			<Main />
-			
+		<div>
+	<Main />
 		</div>
+		
 	);
 }
 
