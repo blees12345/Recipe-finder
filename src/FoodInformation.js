@@ -1,40 +1,34 @@
-// import React from 'react';
-// import {Card, Button} from 'react-bootstrap';
-// import { useState, useEffect } from 'react';
+import { Button, Modal, Card, Container } from 'react-bootstrap';
+import { useState } from 'react'; 
 
+function FoodInformation() {
+	const [show, setShow] = useState(false);
 
-// function FoodInformation() {
-//      const [result, setResult] = useState([]);
-//      const [searchString, setSearchString] = useState('');
-// function handleSubmit(event) {
-   
-// 		event.preventDefault();
-// 		const API_ID = process.env.REACT_APP_API_ID;
-// 		const API_KEY = process.env.REACT_APP_API_KEY;
-// 		const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchString}&app_id=${API_ID}&app_key=${API_KEY}&imageSize=REGULAR`;
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
-// 		fetch(url)
-// 			.then((res) => {
-// 				return res.json();
-// 			})
-// 			.then((data) => {
-// 				setResult(data.hits);
-// 				console.log(data.hits);
-// 			})
-// 			.catch((err) => {
-// 				console.log(err);
-// 			});
-// 		console.log(url);
-// 	}
-//     return (
-// 		<div>
-//             {result.map(item => (
-//                 <div className='foodInfo'>
-//                     <p>{result.recipe.label}</p>
-//                 </div>
-//             ))}
-//         </div>
-// 		);
-//     }
+	return (
+		<>
+			<Button variant='primary' onClick={handleShow}>
+				Launch demo modal
+			</Button>
 
-// export default FoodInformation;
+			<Modal show={show} onHide={handleClose}>
+				<Modal.Header closeButton>
+					<Modal.Title>Modal heading</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+				<Modal.Footer>
+					<Button variant='secondary' onClick={handleClose}>
+						Close
+					</Button>
+					<Button variant='primary' onClick={handleClose}>
+						Save Changes
+					</Button>
+				</Modal.Footer>
+			</Modal>
+		</>
+	);
+}
+
+export default FoodInformation
