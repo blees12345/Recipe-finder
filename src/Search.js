@@ -6,15 +6,17 @@ import { Button, Row, Card, Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import CustomToggle from './CustomToggle';
 import { Routes, Route } from 'react-router-dom';
+import FoodInformation from './FoodInformation';
+import  './App.css'
 
 
 function Search(props) {
 	const [searchString, setSearchString] = useState('');
 	const [result, setResult] = useState([]);
-
+	const [active, setActive] = useState('')
 	function handleChange(event) {
 		setSearchString(event.target.value);
-	}
+	} 
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -48,10 +50,10 @@ function Search(props) {
 			/>
 			{result.map((result, index) => {
 				return (
-					<div className='wrapper'>
-						<Row xs={1} md={3} lg={1} className='g-4'>
+					<div >
+						<Row xs={1} md={1} lg={1} className='g-4'>
 							{/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-							<Col className='col' xs={3} md={10}>
+							{/* <Col className='col'> */}
 								<Card className='card' key={index}>
 									<Card.Img src={result.recipe.image} />
 									<Card.Body>
@@ -59,19 +61,22 @@ function Search(props) {
 										<Card.Text>
 											Calories: {Math.floor(result.recipe.calories)}
 										</Card.Text>
-								
-								
-								<Button>Nutrition Facts</Button>			    		
+										<Button >
+											Food Information
+										</Button>
 									</Card.Body>
 								</Card>
-							</Col>
+							{/* </Col> */}
 							{/* ))} */}
 						</Row>
+						{/* {active === 'buttonData' && (
+							<Card data={result.recipe.label} cardIndex='0' />
+						)} */}
 					</div>
 				);
 			})}
 		</div>
 	);
 }
-
+console.log(Button)
 export default Search;
