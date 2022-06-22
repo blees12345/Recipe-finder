@@ -5,20 +5,19 @@ import Search from './Search'
 import Col from 'react-bootstrap/Col';
 import { Container, Row } from 'react-bootstrap';
 import CustomToggle from './CustomToggle';
-
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FoodInformation from './FoodInformation';
+import './App.css'
 function Main(props) {
 	
 	return (
-		<Container className='mainCard'>
-			<Row md={4} lg={2}>
-				<Col>
+		<div >
+				<h1>Find the perfect dish!</h1>
 					<Search />
-				</Col>
+		</div>
+					
+					
 		
-			</Row>
-		</Container>
 	);
 }
 
