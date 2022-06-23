@@ -13,7 +13,6 @@ function FoodList({searchString,handleChange,handleSubmit}) {
 						required></input>
 					<button type='submit'>Search</button>
 				</form>
-             
 			</div>
 		);
        

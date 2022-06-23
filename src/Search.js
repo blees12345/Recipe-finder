@@ -52,10 +52,6 @@ handleShow()
 console.log('clicked')
 
 }
-
-	// useEffect(()=>{
-	//     handleSubmit();
-	// },[])
 	return (
 		<>
 			<FoodList
@@ -91,21 +87,3 @@ console.log('clicked')
 
 export default Search;
 
-	{/* <div className=" col=11 col-md-6 col-lg-3 mx-0 mb-4" key={index}> */}
-						{/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-						{/* <Col className='col'> */}
-
-							{
-								/* </Col> */
-							}
-							{
-								/* ))} */
-							}
-							{
-								/* </div> */
-							}
-							{
-								/* {active === 'buttonData' && (
-							<Card data={result.recipe.label} cardIndex='0' />
-						)} */
-							}
