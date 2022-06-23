@@ -1,8 +1,23 @@
 import { Button, Modal, Card, Container } from 'react-bootstrap';
 import { useState } from 'react'; 
+import FoodRecipe from './FoodRecipe';
 
 function FoodInformation({show, handleClose, recipe}) {
+    // const [selectedRecipe, setselectedRecipe] = useState();
+    const [recipeInfo, setrecipeInfo] = useState(null)
+    const [shows, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+
+
 if (recipe === null) return null
+function fetchFoodRecipe(recipe) {
+	// setselectedRecipe(recipe);
+setrecipeInfo(recipe)
+	handleShow();
+
+
+}
+
 	return (
 		<>
 			<Modal className='modal' show={show} onHide={handleClose}>
@@ -32,6 +47,24 @@ if (recipe === null) return null
 							Sodium: {Math.floor(recipe.totalNutrients.NA.quantity)}
 							{recipe.totalNutrients.NA.unit}
 						</p>
+                            <h2>Ingredients</h2>
+						<div className='nutritionFacts'>
+							<p>{recipe.ingredientLines[0]}</p>
+							<p>{recipe.ingredientLines[1]}</p>
+							<p>{recipe.ingredientLines[2]}</p>
+							<p>{recipe.ingredientLines[3]}</p>
+							<p>{recipe.ingredientLines[4]}</p>
+
+							{/* {recipe.ingredientLines.map} */}
+						</div>
+						<Button
+							onClick={() => {
+								fetchFoodRecipe(recipe.url);
+								console.log('clickeed ');
+							}}>
+							{' '}
+							Food Recipe
+						</Button>
 					</div>
 				</Modal.Body>
 				<Modal.Footer>
@@ -40,6 +73,11 @@ if (recipe === null) return null
 					</Button>
 				</Modal.Footer>
 			</Modal>
+			{/* <FoodRecipe
+				handleClose={handleClose}
+				recipe={selectedRecipe}
+				show={show}
+			/> */}
 		</>
 	);
 }

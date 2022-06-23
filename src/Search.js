@@ -3,10 +3,9 @@ import FoodList from './FoodList';
 // import FoodInfo from './FoodInfo';
 // import {Card} from 'react-bootstrap/Card';
 import { Button, Row, Card, Container } from 'react-bootstrap';
-
-
 import FoodInformation from './FoodInformation';
-
+import FoodRecipe from './FoodRecipe';
+import rat from './photos/rat.png';
 
 	
 
@@ -20,6 +19,7 @@ function Search(props) {
 		const handleShow = () => setShow(true);
 
 		const [selectedRecipe, setselectedRecipe] = useState(null)
+		
 	const API_ID = process.env.REACT_APP_API_ID;
 	const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -43,27 +43,30 @@ function Search(props) {
 			.catch((err) => {
 				console.log(err);
 			});
-		console.log(url);
+		
 	}
 function fetchFoodInfo(recipe){
 
 setselectedRecipe(recipe)
 handleShow()
-console.log('clicked')
 
 }
+// function fetchRecipe(recipe) {
+// 	setIngredients(recipe);
+// 	handleShow();
+// 	console.log('fetch recipe')
+// }
 	return (
 		<>
+			
 			<FoodList
 				searchString={searchString}
 				handleSubmit={handleSubmit}
 				handleChange={handleChange}
 			/>
-			
-					<div className='results'>
-						{result.map((result, index) => {
-							return (
-					
+			<div className='results'>
+				{result.map((result, index) => {
+					return (
 						<Card className='card' key={index}>
 							<Card.Img src={result.recipe.image} />
 							<Card.Body>
@@ -71,19 +74,31 @@ console.log('clicked')
 								<Card.Text>
 									Calories: {Math.floor(result.recipe.calories)}
 								</Card.Text>
-								<Button onClick={( ) =>{
-									fetchFoodInfo(result.recipe)
-								}}> Food Information</Button>
-
+								<Button
+									onClick={() => {
+										fetchFoodInfo(result.recipe);
+									}}>
+									{' '}
+									Food Information
+								</Button>
 							</Card.Body>
 						</Card>
-					
-							)})}
-					</div>
-		<FoodInformation handleClose={handleClose}  recipe={selectedRecipe} show={show}/>
+					);
+				})}
+			</div>
+
+			<FoodInformation
+				handleClose={handleClose}
+				recipe={selectedRecipe}
+				show={show}
+			/>
+			{/* <FoodRecipe
+				handleClose={handleClose}
+				recipe={selectedRecipe}
+				show={show}
+			/> */}
 		</>
 	);
 }
 
 export default Search;
-
