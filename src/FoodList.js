@@ -13,9 +13,7 @@ function FoodList({searchString,handleChange,handleSubmit}) {
 						required></input>
 					<button type='submit'>Search</button>
 				</form>
-                {/* {data.map(item =>{
-                    <li>{item.title}</li>
-                })} */}
+             
 			</div>
 		);
        

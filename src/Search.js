@@ -3,10 +3,10 @@ import FoodList from './FoodList';
 // import FoodInfo from './FoodInfo';
 // import {Card} from 'react-bootstrap/Card';
 import { Button, Row, Card, Container } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
-import CustomToggle from './CustomToggle';
-import { Routes, Route } from 'react-router-dom';
+
+
 import FoodInformation from './FoodInformation';
+
 
 	
 
@@ -15,6 +15,11 @@ function Search(props) {
 	const [result, setResult] = useState([]);
 	const [active, setActive] = useState('')
 
+		const [show, setShow] = useState(false);
+		const handleClose = () => setShow(false);
+		const handleShow = () => setShow(true);
+
+		const [selectedRecipe, setselectedRecipe] = useState(null)
 	const API_ID = process.env.REACT_APP_API_ID;
 	const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -40,11 +45,13 @@ function Search(props) {
 			});
 		console.log(url);
 	}
-// function fetchFoodInfo(event){
-// event.preventDefault();
+function fetchFoodInfo(recipe){
 
-// console.log('clicked')
-// }
+setselectedRecipe(recipe)
+handleShow()
+console.log('clicked')
+
+}
 
 	// useEffect(()=>{
 	//     handleSubmit();
@@ -61,20 +68,23 @@ function Search(props) {
 						{result.map((result, index) => {
 							return (
 					
-						<Card className='card'>
+						<Card className='card' key={index}>
 							<Card.Img src={result.recipe.image} />
 							<Card.Body>
 								<Card.Title>{result.recipe.label}</Card.Title>
 								<Card.Text>
 									Calories: {Math.floor(result.recipe.calories)}
 								</Card.Text>
-								<Button onClick={<FoodInformation/>}>Food Information</Button>
+								<Button onClick={( ) =>{
+									fetchFoodInfo(result.recipe)
+								}}> Food Information</Button>
+
 							</Card.Body>
 						</Card>
 					
 							)})}
 					</div>
-		
+		<FoodInformation handleClose={handleClose}  recipe={selectedRecipe} show={show}/>
 		</>
 	);
 }
