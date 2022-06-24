@@ -1,22 +1,15 @@
-import { Button, Modal, Card, Container } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react'; 
-import FoodRecipe from './FoodRecipe';
+
 
 function FoodInformation({show, handleClose, recipe}) {
-    // const [selectedRecipe, setselectedRecipe] = useState();
+    
     const [recipeInfo, setrecipeInfo] = useState(null)
     const [shows, setShow] = useState(false);
     const handleShow = () => setShow(true);
 
 
 if (recipe === null) return null
-function fetchFoodRecipe(recipe) {
-	// setselectedRecipe(recipe);
-setrecipeInfo(recipe)
-	handleShow();
-
-
-}
 
 	return (
 		<>
@@ -47,24 +40,19 @@ setrecipeInfo(recipe)
 							Sodium: {Math.floor(recipe.totalNutrients.NA.quantity)}
 							{recipe.totalNutrients.NA.unit}
 						</p>
-                            <h2>Ingredients</h2>
+						<h2>Ingredients</h2>
 						<div className='nutritionFacts'>
-							<p>{recipe.ingredientLines[0]}</p>
-							<p>{recipe.ingredientLines[1]}</p>
-							<p>{recipe.ingredientLines[2]}</p>
-							<p>{recipe.ingredientLines[3]}</p>
-							<p>{recipe.ingredientLines[4]}</p>
-
-							{/* {recipe.ingredientLines.map} */}
+							{recipe.ingredientLines.map((Ingredients, index) => {
+								return (
+									<ul key={index}>
+										<li >{Ingredients}</li>
+									</ul>
+								);
+							})}
 						</div>
-						<Button
-							onClick={() => {
-								fetchFoodRecipe(recipe.url);
-								console.log('clickeed ');
-							}}>
-							{' '}
-							Food Recipe
-						</Button>
+						<a  href={recipe.url}>
+							More Info
+						</a>
 					</div>
 				</Modal.Body>
 				<Modal.Footer>
@@ -73,11 +61,6 @@ setrecipeInfo(recipe)
 					</Button>
 				</Modal.Footer>
 			</Modal>
-			{/* <FoodRecipe
-				handleClose={handleClose}
-				recipe={selectedRecipe}
-				show={show}
-			/> */}
 		</>
 	);
 }
