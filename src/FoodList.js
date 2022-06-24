@@ -4,7 +4,7 @@ function FoodList({searchString,handleChange,handleSubmit}) {
     return (
 			<div>
 				<form onSubmit={handleSubmit}>
-					<label htmlFor='searchString'>Search:</label>
+					<label htmlFor='searchString'></label>
 					<input
 						type='text'
 						value={searchString}

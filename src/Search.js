@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import FoodList from './FoodList';
-// import FoodInfo from './FoodInfo';
-// import {Card} from 'react-bootstrap/Card';
-import { Button, Row, Card, Container } from 'react-bootstrap';
+import { Button,  Card, } from 'react-bootstrap';
 import FoodInformation from './FoodInformation';
-import FoodRecipe from './FoodRecipe';
-import rat from './photos/rat.png';
 
-	
 
 function Search(props) {
 	const [searchString, setSearchString] = useState('');
 	const [result, setResult] = useState([]);
-	const [active, setActive] = useState('')
+	
 
 		const [show, setShow] = useState(false);
 		const handleClose = () => setShow(false);
@@ -38,7 +33,6 @@ function Search(props) {
 			})
 			.then((data) => {
 				setResult(data.hits);
-				console.log(data.hits);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -51,11 +45,7 @@ setselectedRecipe(recipe)
 handleShow()
 
 }
-// function fetchRecipe(recipe) {
-// 	setIngredients(recipe);
-// 	handleShow();
-// 	console.log('fetch recipe')
-// }
+
 	return (
 		<>
 			
@@ -91,12 +81,8 @@ handleShow()
 				handleClose={handleClose}
 				recipe={selectedRecipe}
 				show={show}
+				result={result}
 			/>
-			{/* <FoodRecipe
-				handleClose={handleClose}
-				recipe={selectedRecipe}
-				show={show}
-			/> */}
 		</>
 	);
 }

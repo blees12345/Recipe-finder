@@ -33,14 +33,6 @@ padding-bottom: 3vh;
 
 }
 
-/* .cards{
-display: flex;
-  justify-content: center;
-  align-content: space-between;
-  flex-wrap: wrap;
-  border: 5px greenyellow;
-  align-items: flex-start;
-} */
 
 .card {
   display: flex;
@@ -59,7 +51,7 @@ display: flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
+padding-top: 5%;
 }
 .main{
   display: flex;
@@ -68,8 +60,7 @@ justify-content: center;
 flex-direction: column;
  color: rgb(255, 145, 0);
  /* padding-bottom: 50%; */
- 
- height:auto;
+ height:98%;
  bottom:0px;
  /* position: relative; */
 
