@@ -31,5 +31,6 @@ when the food is clicked it will show more information(nutrition)
 ## Intallation Instructions
 Visit https://reccipefinder.netlify.app/ or clone this repo .You will need to run `npm install` to install the dependencies and get api keys from https://www.edamam.com/ .
 ## Contribution Guidelines
+
 Contributions,issues, and added feature request are Welcome!
 Submit [Here](https://github.com/blees12345/Recipe-finder/issues) 
