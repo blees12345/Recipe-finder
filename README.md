@@ -28,4 +28,8 @@ As a user i would like to click on a certain food and see more information .
 Have A search bar to find different foods.
 have a list of the searched food.
 when the food is clicked it will show more information(nutrition)
-
+## Intallation Instructions
+Visit https://reccipefinder.netlify.app/ or clone this repo .You will need to run `npm install` to install the dependencies and get api keys from https://www.edamam.com/ .
+## Contribution Guidelines
+Contributions,issues, and added feature request are Welcome!
+Submit [Here](https://github.com/blees12345/Recipe-finder/issues) 
